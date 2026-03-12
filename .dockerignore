@@ -1,0 +1,8 @@
+.git
+public
+node_modules
+.hugo_build.lock
+.github
+docs
+README.md
+CLAUDE.md
