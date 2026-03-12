@@ -1,0 +1,32 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.Params.social.website }}",
+  "telephone": "{{ .Site.Params.phone }}",
+  "email": "{{ .Site.Params.email }}",
+  "foundingDate": "1984",
+  "description": "{{ .Site.Params.description }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ .Site.Params.addressComponents.street }}",
+    "addressLocality": "{{ .Site.Params.addressComponents.city }}",
+    "addressRegion": "{{ .Site.Params.addressComponents.region }}",
+    "postalCode": "{{ .Site.Params.addressComponents.postalCode }}",
+    "addressCountry": "{{ .Site.Params.addressComponents.country }}"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 46.5927,
+    "longitude": -112.0361
+  },
+  "areaServed": "{{ .Site.Params.serviceArea }}",
+  "sameAs": [
+    "{{ .Site.Params.social.facebook }}",
+    "{{ .Site.Params.social.twitter }}",
+    "{{ .Site.Params.social.bbb }}"
+  ],
+  "openingHours": "Mo-Fr 08:00-17:00"
+}
+</script>

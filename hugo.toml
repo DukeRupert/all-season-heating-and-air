@@ -1,0 +1,57 @@
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "All Season Heating & Air Conditioning"
+disableKinds = ["taxonomy", "term"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[params]
+  description = "Family-owned HVAC company serving Helena and Shelby, Montana since 1984. Heating, AC, maintenance, and 24-hour emergency service."
+  tagline = "Keeping Helena Warm Since 1984."
+  subheadline = "Four decades of honest work, fair prices, and showing up when it matters — including 2am in January."
+  phone = "(406) 442-3658"
+  phoneShelby = "(406) 434-7990"
+  fax = "(406) 443-1481"
+  email = "allseasonheatingair@gmail.com"
+  address = "1110 Stanley St, Helena, MT 59601"
+  mailingAddress = "PO Box 4957, Helena, MT 59604-4957"
+  hours = "Mon–Fri 8am–5pm"
+  emergencyHours = "24-Hour Emergency Service Available"
+  contractorReg = "#150921"
+  bbbRating = "A+"
+  yearEstablished = 1984
+  serviceArea = "Helena, Montana City, Clancy, Boulder, Townsend, Shelby, Hi-Line"
+
+  [params.addressComponents]
+    street = "1110 Stanley St"
+    city = "Helena"
+    region = "MT"
+    postalCode = "59601"
+    country = "US"
+
+  [params.social]
+    facebook = "https://www.facebook.com/AllSeasonHeatingAir/"
+    twitter = "https://x.com/all_season_heat"
+    bbb = "https://www.bbb.org/us/mt/helena/profile/heating-and-air-conditioning/all-season-heating-ac-1296-64109389"
+    website = "https://allseasonheating-air.com"
+
+[[menu.main]]
+  name = "Home"
+  url = "#"
+  weight = 1
+
+[[menu.main]]
+  name = "Services"
+  url = "#services"
+  weight = 2
+
+[[menu.main]]
+  name = "About"
+  url = "#about"
+  weight = 3
+
+[[menu.main]]
+  name = "Contact"
+  url = "#contact"
+  weight = 4

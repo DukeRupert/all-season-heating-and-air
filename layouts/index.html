@@ -1,0 +1,162 @@
+{{ define "main" }}
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero__content">
+    <p class="hero__established">Est. 1984 &middot; Helena, Montana</p>
+    <h1 class="hero__headline">{{ .Site.Params.tagline }}</h1>
+    <p class="hero__subhead">{{ .Site.Params.subheadline }}</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href="#contact">Request a Service Call</a>
+      <a class="btn btn--secondary" href="#contact">Get a Free Estimate</a>
+      <a class="btn btn--phone" href="tel:+14064423658">Call Now: {{ .Site.Params.phone }}</a>
+    </div>
+  </div>
+  <div class="hero__image" role="img" aria-label="Montana home in winter"></div>
+</section>
+
+<!-- Who We Are -->
+<section class="about section" id="about">
+  <div class="container about__inner">
+    <h2 class="about__headline">Montana's HVAC company. Not a franchise. Not a call center. Us.</h2>
+    <p>All Season Heating &amp; Air Conditioning has been a family-owned business in Helena since 1984. We've installed furnaces in homes that have since changed hands twice. We've serviced the same commercial buildings for twenty years running. When you call us, you get our people — experienced, licensed tradesmen who live and work in this valley just like you do.</p>
+    <p>We serve Helena, Montana City, Clancy, Boulder, Townsend, and the Hi-Line out of our Shelby location. Residential or commercial, new construction or emergency repair — we handle it.</p>
+    <p class="about__credentials">Fully insured. Premier Lennox Dealer. Contractor Registration {{ .Site.Params.contractorReg }}.</p>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services section" id="services">
+  <div class="container">
+    <h2 class="services__headline">What We Do</h2>
+    <div class="services__grid">
+      {{ range .Site.Data.services }}
+      <div class="services__item">
+        <span class="services__label">{{ .label }}</span>
+        <h3 class="services__title">{{ .title }}</h3>
+        <p>{{ .description }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Emergency Callout -->
+<section class="callout section">
+  <div class="container callout__inner">
+    <p class="callout__text">24-hour emergency service, 7 days a week.</p>
+    <p class="callout__sub">Because a furnace doesn't care what day it is.</p>
+  </div>
+</section>
+
+<!-- Featured Quote -->
+<section class="featured-quote section">
+  <div class="container">
+    {{ range .Site.Data.testimonials }}{{ if .featured }}
+    <blockquote class="featured-quote__block">
+      <p class="featured-quote__text">&ldquo;{{ .quote }}&rdquo;</p>
+      <cite class="featured-quote__cite">&mdash; {{ .attribution }}</cite>
+    </blockquote>
+    {{ end }}{{ end }}
+  </div>
+</section>
+
+<!-- Trust Signals -->
+<section class="trust section">
+  <div class="container">
+    <h2 class="trust__headline">Why Helena Has Called Us First for 40 Years</h2>
+    <div class="trust__grid">
+      <div class="trust__item">
+        <span class="trust__value">Since 1984</span>
+        <span class="trust__label">Family Owned & Operated</span>
+      </div>
+      <div class="trust__item">
+        <span class="trust__value">2 Locations</span>
+        <span class="trust__label">Helena & Shelby</span>
+      </div>
+      <div class="trust__item">
+        <span class="trust__value">24/7</span>
+        <span class="trust__label">Emergency Service</span>
+      </div>
+      <div class="trust__item">
+        <span class="trust__value">A+ Rated</span>
+        <span class="trust__label">Better Business Bureau</span>
+      </div>
+      <div class="trust__item">
+        <span class="trust__value">Free Estimates</span>
+        <span class="trust__label">New & Replacement Equipment</span>
+      </div>
+      <div class="trust__item">
+        <span class="trust__value">Premier Dealer</span>
+        <span class="trust__label">Lennox Certified</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials section">
+  <div class="container">
+    <h2 class="testimonials__headline">What Our Neighbors Say</h2>
+    <div class="testimonials__grid">
+      {{ range .Site.Data.testimonials }}{{ if not .featured }}
+      <blockquote class="testimonials__card">
+        <p class="testimonials__quote">&ldquo;{{ .quote }}&rdquo;</p>
+        <cite class="testimonials__cite">&mdash; {{ .attribution }}</cite>
+      </blockquote>
+      {{ end }}{{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Contact / Footer CTA -->
+<section class="contact section" id="contact">
+  <div class="container contact__inner">
+    <h2 class="contact__headline">Ready to Get Started?</h2>
+    <p class="contact__sub">Whether you need emergency service tonight or want to plan a replacement before next winter, we're easy to reach and straight with you about what things cost.</p>
+    <div class="contact__phones">
+      <div class="contact__phone">
+        <span class="contact__phone-label">Helena</span>
+        <a class="contact__phone-number" href="tel:+14064423658">{{ .Site.Params.phone }}</a>
+      </div>
+      <div class="contact__phone">
+        <span class="contact__phone-label">Shelby</span>
+        <a class="contact__phone-number" href="tel:+14064347990">{{ .Site.Params.phoneShelby }}</a>
+      </div>
+    </div>
+    <p class="contact__hours">{{ .Site.Params.hours }} &middot; {{ .Site.Params.emergencyHours }}</p>
+    <div class="contact__ctas">
+      <a class="btn btn--primary" href="mailto:{{ .Site.Params.email }}?subject=Service Call Request">Request a Service Call</a>
+      <a class="btn btn--secondary" href="mailto:{{ .Site.Params.email }}?subject=Free Estimate Request">Request a Free Estimate</a>
+    </div>
+    <div class="contact__social">
+      {{ with .Site.Params.social.facebook }}<a href="{{ . }}" aria-label="Facebook" rel="noopener noreferrer" target="_blank">Facebook</a>{{ end }}
+      {{ with .Site.Params.social.twitter }}<a href="{{ . }}" aria-label="X (Twitter)" rel="noopener noreferrer" target="_blank">X</a>{{ end }}
+      {{ with .Site.Params.social.bbb }}<a href="{{ . }}" aria-label="Better Business Bureau profile" rel="noopener noreferrer" target="_blank">BBB</a>{{ end }}
+    </div>
+  </div>
+</section>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  (function() {
+    var toggle = document.querySelector('.nav__toggle');
+    var menu = document.getElementById('nav-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', function() {
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('nav__menu--open');
+    });
+    // Close menu when clicking a nav link (single-page anchor nav)
+    menu.addEventListener('click', function(e) {
+      if (e.target.classList.contains('nav__link')) {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('nav__menu--open');
+      }
+    });
+  })();
+</script>
+{{ end }}
