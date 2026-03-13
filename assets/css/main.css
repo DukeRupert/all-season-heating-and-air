@@ -424,6 +424,11 @@ ul {
   font-size: 1.05rem;
   font-style: italic;
   color: var(--color-steel-light);
+  margin-bottom: var(--space-md);
+}
+
+.callout__cta {
+  font-size: 1.1rem;
 }
 
 /* --- Featured Quote --- */
