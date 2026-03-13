@@ -210,6 +210,25 @@ ul {
   width: 100%;
 }
 
+.nav__phone {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-steel-light);
+  font-weight: var(--fw-semibold);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.nav__phone:hover {
+  color: var(--color-white);
+}
+
+.nav__phone-icon {
+  flex-shrink: 0;
+}
+
 /* --- Buttons --- */
 
 .btn {
@@ -649,6 +668,10 @@ ul {
   }
 
   .nav__link::after {
+    display: none;
+  }
+
+  .nav__phone-text {
     display: none;
   }
 
