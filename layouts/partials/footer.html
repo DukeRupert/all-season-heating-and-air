@@ -1,5 +1,29 @@
 <footer class="footer">
-  <div class="container footer__inner">
+  <div class="container footer__grid">
+    <div class="footer__col">
+      <span class="footer__logo">All Season<span class="footer__logo-sub">Heating & Air</span></span>
+      <address class="footer__address">
+        {{ .Site.Params.address }}<br>
+        <a href="tel:+14064423658">{{ .Site.Params.phone }}</a><br>
+        <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+      </address>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Service Area</h3>
+      <p class="footer__text">{{ .Site.Params.serviceArea }}</p>
+      <h3 class="footer__heading">Shelby Office</h3>
+      <p class="footer__text"><a href="tel:+14064347990">{{ .Site.Params.phoneShelby }}</a></p>
+    </div>
+    <div class="footer__col">
+      <h3 class="footer__heading">Connect</h3>
+      <ul class="footer__social">
+        {{ with .Site.Params.social.facebook }}<li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">Facebook</a></li>{{ end }}
+        {{ with .Site.Params.social.twitter }}<li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>{{ end }}
+        {{ with .Site.Params.social.bbb }}<li><a href="{{ . }}" rel="noopener noreferrer" target="_blank">BBB Profile</a></li>{{ end }}
+      </ul>
+    </div>
+  </div>
+  <div class="container footer__bottom">
     <p>&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
     <p>Contractor Registration {{ .Site.Params.contractorReg }} &middot; Premier Lennox Dealer &middot; Fully Insured</p>
   </div>
