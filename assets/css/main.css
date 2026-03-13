@@ -128,6 +128,19 @@ ul {
   padding-bottom: var(--space-xl);
 }
 
+.section__eyebrow {
+  font-size: 0.7rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-steel-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.section__eyebrow--light {
+  color: var(--color-steel-light);
+}
+
 /* --- Navigation --- */
 
 .nav {
