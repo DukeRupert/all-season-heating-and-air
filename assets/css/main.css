@@ -334,7 +334,7 @@ ul {
 .hero__subhead {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: var(--space-md);
   max-width: 520px;
 }
@@ -670,10 +670,15 @@ ul {
   font-weight: var(--fw-medium);
   font-size: 0.9rem;
   letter-spacing: 0.02em;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  text-underline-offset: 2px;
+  transition: color 0.2s, text-decoration-color 0.2s;
 }
 
 .contact__social a:hover {
   color: var(--color-white);
+  text-decoration-color: var(--color-white);
 }
 
 /* --- Footer --- */

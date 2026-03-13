@@ -21,7 +21,14 @@
     "latitude": 46.5927,
     "longitude": -112.0361
   },
-  "areaServed": "{{ .Site.Params.serviceArea }}",
+  "areaServed": [
+    {"@type": "City", "name": "Helena", "containedInPlace": {"@type": "State", "name": "Montana"}},
+    {"@type": "City", "name": "Montana City", "containedInPlace": {"@type": "State", "name": "Montana"}},
+    {"@type": "City", "name": "Clancy", "containedInPlace": {"@type": "State", "name": "Montana"}},
+    {"@type": "City", "name": "Boulder", "containedInPlace": {"@type": "State", "name": "Montana"}},
+    {"@type": "City", "name": "Townsend", "containedInPlace": {"@type": "State", "name": "Montana"}},
+    {"@type": "City", "name": "Shelby", "containedInPlace": {"@type": "State", "name": "Montana"}}
+  ],
   "sameAs": [
     "{{ .Site.Params.social.facebook }}",
     "{{ .Site.Params.social.twitter }}",
