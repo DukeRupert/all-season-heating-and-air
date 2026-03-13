@@ -506,41 +506,37 @@ ul {
 /* --- Trust Signals --- */
 
 .trust {
-  background: var(--color-offwhite);
-}
-
-.trust__headline {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: var(--fw-semibold);
-  color: var(--color-navy);
-  text-align: center;
-  margin-bottom: var(--space-lg);
+  background: var(--color-navy);
+  padding: var(--space-lg) 0;
 }
 
 .trust__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--space-md);
+  text-align: center;
 }
 
 .trust__item {
-  text-align: center;
-  padding: var(--space-md);
+  padding: var(--space-sm);
 }
 
 .trust__value {
   display: block;
-  font-size: 1.5rem;
+  font-size: clamp(2.5rem, 5vw, 3.25rem);
   font-weight: var(--fw-semibold);
-  color: var(--color-navy);
+  color: var(--color-steel-light);
+  line-height: 1;
   margin-bottom: var(--space-xs);
 }
 
 .trust__label {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: var(--fw-medium);
-  color: var(--color-steel-dark);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* --- Testimonials --- */
@@ -754,7 +750,6 @@ ul {
 
   .trust__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm);
   }
 
   .testimonials__grid {
