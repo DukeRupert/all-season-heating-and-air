@@ -1,8 +1,9 @@
 {{ define "main" }}
 
 <!-- Hero -->
-<section class="hero">
-  <div class="hero__content">
+<section class="hero" role="img" aria-label="Montana home in winter">
+  <div class="hero__overlay"></div>
+  <div class="hero__content container">
     <p class="hero__established">Est. 1984 &middot; Helena, Montana</p>
     <h1 class="hero__headline">{{ .Site.Params.tagline }}</h1>
     <p class="hero__subhead">{{ .Site.Params.subheadline }}</p>
@@ -12,7 +13,6 @@
       <a class="btn btn--phone" href="tel:+14064423658">Call Now: {{ .Site.Params.phone }}</a>
     </div>
   </div>
-  <div class="hero__image" role="img" aria-label="Montana home in winter"></div>
 </section>
 
 <!-- Who We Are -->
