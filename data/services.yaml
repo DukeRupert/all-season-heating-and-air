@@ -1,27 +1,27 @@
-- label: "Heating"
+- label: "Install & Repair"
   title: "Heating"
   description: "Furnace installation, replacement, and repair. We service most makes and models. If it heats your home, we know it."
 
-- label: "Air Conditioning"
+- label: "Stay Cool"
   title: "Air Conditioning"
   description: "Montana summers are short. Make them comfortable. We install and service central AC systems sized right for your home."
 
-- label: "Maintenance"
+- label: "Annual Plans"
   title: "Preventive Maintenance"
   description: "Don't wait for something to break. Our maintenance program includes annual inspections, cleaning, lubrication, and safety checks — plus a 10% discount on parts and filters."
 
-- label: "Air Quality"
+- label: "Breathe Better"
   title: "Indoor Air Quality"
   description: "The air inside your home is 2–5 times more polluted than outside air. We install Lennox Healthy Climate PureAir systems that filter particles down to .01 micron."
 
-- label: "Humidification"
+- label: "Winter Comfort"
   title: "Humidification"
   description: "Dry winter air is hard on your family and your home. We install whole-home humidification systems that protect wood floors, furniture, and lungs through the long heating season."
 
-- label: "Duct Cleaning"
+- label: "Deep Clean"
   title: "Duct & Dryer Vent Cleaning"
   description: "Your ducts have been moving air — and everything in it — through your home for years. We clean them properly, with rotary brushes, high-powered air pressure, and professional vacuums."
 
-- label: "Smart Home"
+- label: "Connected Home"
   title: "Smart Thermostats"
   description: "Control your system from anywhere with a Lennox iComfort WiFi thermostat. Easy to program, easy to read, and it pays for itself in energy savings."

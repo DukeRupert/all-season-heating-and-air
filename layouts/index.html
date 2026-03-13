@@ -8,9 +8,8 @@
     <h1 class="hero__headline">{{ .Site.Params.tagline }}</h1>
     <p class="hero__subhead">{{ .Site.Params.subheadline }}</p>
     <div class="hero__ctas">
-      <a class="btn btn--primary" href="#contact">Request a Service Call</a>
+      <a class="btn btn--primary" href="tel:+14064423658">Call Now: {{ .Site.Params.phone }}</a>
       <a class="btn btn--secondary" href="#contact">Get a Free Estimate</a>
-      <a class="btn btn--phone" href="tel:+14064423658">Call Now: {{ .Site.Params.phone }}</a>
     </div>
   </div>
 </section>
@@ -99,7 +98,6 @@
 <!-- Testimonials -->
 <section class="testimonials section">
   <div class="container">
-    <p class="section__eyebrow">From Our Neighbors</p>
     <h2 class="testimonials__headline">What Our Neighbors Say</h2>
     <div class="testimonials__grid reveal-stagger">
       {{ range .Site.Data.testimonials }}{{ if not .featured }}
