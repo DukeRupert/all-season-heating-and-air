@@ -25,6 +25,13 @@
   --space-md: 2rem;
   --space-lg: 4rem;
   --space-xl: 6rem;
+
+  /* Animation */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-entrance: 600ms;
 }
 
 /* --- Reset & Base --- */
@@ -113,6 +120,50 @@ ul {
   }
 }
 
+/* --- Hero Entrance Animation --- */
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__established,
+.hero__headline,
+.hero__subhead,
+.hero__ctas {
+  animation: hero-fade-up var(--duration-entrance) var(--ease-out-quart) both;
+}
+
+.hero__established { animation-delay: 100ms; }
+.hero__headline    { animation-delay: 200ms; }
+.hero__subhead     { animation-delay: 350ms; }
+.hero__ctas        { animation-delay: 500ms; }
+
+/* --- Scroll Reveal --- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--duration-entrance) var(--ease-out-quart),
+              transform var(--duration-entrance) var(--ease-out-quart);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children within a reveal group */
+.reveal-stagger > .reveal {
+  transition-delay: calc(var(--reveal-index, 0) * 80ms);
+}
+
 /* --- Layout --- */
 
 .container {
@@ -185,7 +236,8 @@ ul {
   height: 2px;
   background: var(--color-white);
   border-radius: 1px;
-  transition: transform 0.2s, opacity 0.2s;
+  transition: transform var(--duration-normal) var(--ease-out-quart),
+              opacity var(--duration-normal) var(--ease-out-quart);
 }
 
 .nav__menu {
@@ -211,7 +263,7 @@ ul {
   width: 0;
   height: 2px;
   background: var(--color-steel);
-  transition: width 0.2s;
+  transition: width var(--duration-normal) var(--ease-out-quart);
 }
 
 .nav__link:hover::after {
@@ -249,7 +301,21 @@ ul {
   border: 2px solid transparent;
   cursor: pointer;
   text-align: center;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  transition: background-color var(--duration-normal) var(--ease-out-quart),
+              color var(--duration-normal) var(--ease-out-quart),
+              border-color var(--duration-normal) var(--ease-out-quart),
+              transform var(--duration-fast) var(--ease-out-quart),
+              box-shadow var(--duration-normal) var(--ease-out-quart);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(30, 44, 91, 0.15);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 80ms;
 }
 
 .btn--primary {
@@ -572,6 +638,13 @@ ul {
   padding: var(--space-md);
   border-radius: 6px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: transform var(--duration-normal) var(--ease-out-quart),
+              box-shadow var(--duration-normal) var(--ease-out-quart);
+}
+
+.testimonials__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .testimonials__quote {

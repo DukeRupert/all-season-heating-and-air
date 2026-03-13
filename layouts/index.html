@@ -18,8 +18,8 @@
 <!-- Who We Are -->
 <section class="about section" id="about">
   <div class="container about__grid">
-    <img class="about__photo" src="/images/team.jpg" alt="The All Season Heating and Air Conditioning team" loading="lazy" />
-    <div class="about__story">
+    <img class="about__photo reveal" src="/images/team.jpg" alt="The All Season Heating and Air Conditioning team" loading="lazy" />
+    <div class="about__story reveal">
       <p class="about__eyebrow">Our Story</p>
       <h2 class="about__headline">Montana's HVAC company. Not a franchise. Not a call center. Us.</h2>
       <p>All Season Heating &amp; Air Conditioning has been a family-owned business in Helena since 1984. We've installed furnaces in homes that have since changed hands twice. We've serviced the same commercial buildings for twenty years running. When you call us, you get our people — experienced, licensed tradesmen who live and work in this valley just like you do.</p>
@@ -39,9 +39,9 @@
   <div class="container">
     <p class="section__eyebrow">Our Services</p>
     <h2 class="services__headline">What We Do</h2>
-    <div class="services__grid">
+    <div class="services__grid reveal-stagger">
       {{ range .Site.Data.services }}
-      <div class="services__item">
+      <div class="services__item reveal">
         <span class="services__label">{{ .label }}</span>
         <h3 class="services__title">{{ .title }}</h3>
         <p>{{ .description }}</p>
@@ -53,7 +53,7 @@
 
 <!-- Emergency Callout -->
 <section class="callout section">
-  <div class="container callout__inner">
+  <div class="container callout__inner reveal">
     <p class="callout__text">24-hour emergency service, 7 days a week.</p>
     <p class="callout__sub">Because a furnace doesn't care what day it is.</p>
     <a class="btn btn--primary callout__cta" href="tel:+14064423658">Call Now: {{ .Site.Params.phone }}</a>
@@ -64,7 +64,7 @@
 <section class="featured-quote section">
   <div class="container">
     {{ range .Site.Data.testimonials }}{{ if .featured }}
-    <blockquote class="featured-quote__block">
+    <blockquote class="featured-quote__block reveal">
       <p class="featured-quote__text">&ldquo;{{ .quote }}&rdquo;</p>
       <cite class="featured-quote__cite">&mdash; {{ .attribution }}</cite>
     </blockquote>
@@ -75,20 +75,20 @@
 <!-- Trust Signals -->
 <section class="trust">
   <div class="container">
-    <div class="trust__grid">
-      <div class="trust__item">
+    <div class="trust__grid reveal-stagger">
+      <div class="trust__item reveal">
         <span class="trust__value">40+</span>
         <span class="trust__label">Years Serving Helena</span>
       </div>
-      <div class="trust__item">
+      <div class="trust__item reveal">
         <span class="trust__value">A+</span>
         <span class="trust__label">BBB Rating</span>
       </div>
-      <div class="trust__item">
+      <div class="trust__item reveal">
         <span class="trust__value">24/7</span>
         <span class="trust__label">Emergency Service</span>
       </div>
-      <div class="trust__item">
+      <div class="trust__item reveal">
         <span class="trust__value">2</span>
         <span class="trust__label">Locations Statewide</span>
       </div>
@@ -101,9 +101,9 @@
   <div class="container">
     <p class="section__eyebrow">From Our Neighbors</p>
     <h2 class="testimonials__headline">What Our Neighbors Say</h2>
-    <div class="testimonials__grid">
+    <div class="testimonials__grid reveal-stagger">
       {{ range .Site.Data.testimonials }}{{ if not .featured }}
-      <blockquote class="testimonials__card">
+      <blockquote class="testimonials__card reveal">
         <p class="testimonials__quote">&ldquo;{{ .quote }}&rdquo;</p>
         <cite class="testimonials__cite">&mdash; {{ .attribution }}</cite>
       </blockquote>
@@ -114,7 +114,7 @@
 
 <!-- Contact / Footer CTA -->
 <section class="contact section" id="contact">
-  <div class="container contact__inner">
+  <div class="container contact__inner reveal">
     <p class="section__eyebrow section__eyebrow--light">Get In Touch</p>
     <h2 class="contact__headline">Ready to Get Started?</h2>
     <p class="contact__sub">Whether you need emergency service tonight or want to plan a replacement before next winter, we're easy to reach and straight with you about what things cost.</p>
@@ -146,21 +146,56 @@
 {{ define "scripts" }}
 <script>
   (function() {
+    // Hamburger menu toggle
     var toggle = document.querySelector('.nav__toggle');
     var menu = document.getElementById('nav-menu');
-    if (!toggle || !menu) return;
-    toggle.addEventListener('click', function() {
-      var expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', String(!expanded));
-      menu.classList.toggle('nav__menu--open');
+    if (toggle && menu) {
+      toggle.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('nav__menu--open');
+      });
+      menu.addEventListener('click', function(e) {
+        if (e.target.classList.contains('nav__link')) {
+          toggle.setAttribute('aria-expanded', 'false');
+          menu.classList.remove('nav__menu--open');
+        }
+      });
+    }
+
+    // Scroll-triggered reveal animations
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var reveals = document.querySelectorAll('.reveal');
+
+    if (prefersReduced) {
+      // Show everything immediately for reduced-motion users
+      reveals.forEach(function(el) {
+        el.classList.add('reveal--visible');
+      });
+      return;
+    }
+
+    // Assign stagger indices to children of reveal-stagger groups
+    document.querySelectorAll('.reveal-stagger').forEach(function(group) {
+      var children = group.querySelectorAll(':scope > .reveal');
+      children.forEach(function(child, i) {
+        child.style.setProperty('--reveal-index', i);
+      });
     });
-    // Close menu when clicking a nav link (single-page anchor nav)
-    menu.addEventListener('click', function(e) {
-      if (e.target.classList.contains('nav__link')) {
-        toggle.setAttribute('aria-expanded', 'false');
-        menu.classList.remove('nav__menu--open');
-      }
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal--visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
     });
+
+    reveals.forEach(function(el) { observer.observe(el); });
   })();
 </script>
 {{ end }}
