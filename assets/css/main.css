@@ -41,7 +41,7 @@ body, h1, h2, h3, p, ul, blockquote, figure {
 body {
   font-family: var(--font-primary);
   font-weight: var(--fw-regular);
-  font-size: 16px;
+  font-size: 100%;
   line-height: 1.7;
   color: var(--color-near-black);
   background-color: var(--color-offwhite);
@@ -291,8 +291,7 @@ ul {
 
 .hero {
   position: relative;
-  min-height: 65vh;
-  min-height: 480px;
+  min-height: max(65vh, 480px);
   background: url('/images/hero.jpg') center / cover no-repeat;
   background-color: var(--color-navy);
   display: flex;
@@ -545,7 +544,7 @@ ul {
   font-weight: var(--fw-medium);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-steel-light);
 }
 
 /* --- Testimonials --- */
@@ -721,7 +720,7 @@ ul {
   font-weight: var(--fw-medium);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--color-steel);
   margin-bottom: var(--space-xs);
 }
 
@@ -773,7 +772,7 @@ ul {
   gap: var(--space-xs);
   text-align: center;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--color-steel);
 }
 
 /* --- Responsive: 768px breakpoint --- */
