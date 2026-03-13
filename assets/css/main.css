@@ -129,7 +129,7 @@ ul {
 }
 
 .section__eyebrow {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: var(--fw-medium);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -368,7 +368,7 @@ ul {
 }
 
 .about__eyebrow {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: var(--fw-medium);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -433,7 +433,7 @@ ul {
 
 .services__label {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: var(--fw-medium);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -716,7 +716,7 @@ ul {
 }
 
 .footer__heading {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: var(--fw-medium);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -775,7 +775,24 @@ ul {
   color: var(--color-steel);
 }
 
-/* --- Responsive: 768px breakpoint --- */
+/* --- Responsive: 1024px breakpoint (tablet) --- */
+
+@media (max-width: 1024px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* --- Responsive: 768px breakpoint (mobile) --- */
 
 @media (max-width: 768px) {
   .nav__toggle {
@@ -808,6 +825,12 @@ ul {
     display: none;
   }
 
+  .nav__phone {
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+  }
+
   .nav__phone-text {
     display: none;
   }
@@ -826,10 +849,6 @@ ul {
     padding-bottom: var(--space-lg);
   }
 
-  .about__grid {
-    grid-template-columns: 1fr;
-  }
-
   .about__photo {
     max-height: 300px;
     object-fit: cover;
@@ -842,10 +861,6 @@ ul {
 
   .trust__grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .testimonials__grid {
-    grid-template-columns: 1fr;
   }
 
   .contact__phones {
