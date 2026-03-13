@@ -362,7 +362,8 @@ ul {
 
 .about__photo {
   aspect-ratio: 4 / 3;
-  background: url('/images/team.jpg') center / cover no-repeat;
+  width: 100%;
+  object-fit: cover;
   background-color: var(--color-navy-tint);
   border-radius: 4px;
 }
@@ -704,11 +705,15 @@ ul {
 }
 
 .footer__address a {
-  transition: color 0.2s;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  text-underline-offset: 2px;
+  transition: color 0.2s, text-decoration-color 0.2s;
 }
 
 .footer__address a:hover {
   color: var(--color-white);
+  text-decoration-color: var(--color-white);
 }
 
 .footer__heading {
@@ -730,11 +735,15 @@ ul {
 }
 
 .footer__text a {
-  transition: color 0.2s;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  text-underline-offset: 2px;
+  transition: color 0.2s, text-decoration-color 0.2s;
 }
 
 .footer__text a:hover {
   color: var(--color-white);
+  text-decoration-color: var(--color-white);
 }
 
 .footer__social {
@@ -744,11 +753,15 @@ ul {
 }
 
 .footer__social a {
-  transition: color 0.2s;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  text-underline-offset: 2px;
+  transition: color 0.2s, text-decoration-color 0.2s;
 }
 
 .footer__social a:hover {
   color: var(--color-white);
+  text-decoration-color: var(--color-white);
 }
 
 .footer__bottom {
@@ -820,6 +833,7 @@ ul {
 
   .about__photo {
     max-height: 300px;
+    object-fit: cover;
   }
 
   .services__grid {

@@ -9,10 +9,10 @@
       <span class="nav__toggle-bar"></span>
     </button>
     <nav aria-label="Main navigation">
-      <ul id="nav-menu" class="nav__menu" role="menubar">
+      <ul id="nav-menu" class="nav__menu">
         {{ range .Site.Menus.main }}
-        <li role="none">
-          <a class="nav__link" role="menuitem" href="{{ .URL }}">{{ .Name }}</a>
+        <li>
+          <a class="nav__link" href="{{ .URL }}">{{ .Name }}</a>
         </li>
         {{ end }}
       </ul>
